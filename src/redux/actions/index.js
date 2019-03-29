@@ -6,6 +6,19 @@ export const setLoading = () => ({
   type: ACTION_TYPES.SET_LOADING,
 });
 
+export const addTag = (photoId, tag) => ({
+  type: ACTION_TYPES.ADD_TAG,
+  payload: {
+    photoId,
+    tag,
+  }
+});
+
+export const setQuery = (value) => ({
+  type: ACTION_TYPES.SET_QUERY,
+  payload: { value },
+});
+
 export const fetchAlbums = () => (dispatch) => {
   dispatch(setLoading());
 

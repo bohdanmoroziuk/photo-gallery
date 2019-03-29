@@ -8,6 +8,18 @@ const initialState = {
 
 const galleryReducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case ACTION_TYPES.ADD_TAG:
+      return {
+        ...state,
+        photos: state.photos.map(photo => {
+          return photo.id === payload.photoId
+            ? { 
+                ...photo, 
+                tags: [ payload.tag, ...photo.tags || [] ] 
+              }
+            : photo;
+        }),
+      };
     case ACTION_TYPES.FETCH_ALBUMS:
       return {
         ...state,
