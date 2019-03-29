@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import { Alert, Button } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addTag, setQuery } from '../redux/actions';
@@ -37,6 +38,14 @@ const Photos = ({ photos, history, query, addTag, setQuery }) => (
     )}
   </div>
 );
+
+Photos.propTypes = {
+  photos: PropTypes.array.isRequired,
+  history: PropTypes.object.isRequired,
+  query: PropTypes.string.isRequired,
+  addTag: PropTypes.func.isRequired,
+  setQuery: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   photos: selectPhotosByTagName(state),

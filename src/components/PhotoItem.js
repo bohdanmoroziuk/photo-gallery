@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Card, CardImg, CardBody } from 'reactstrap';
 import BadgeList from './BadgeList';
 import TagForm from './forms/TagForm';
@@ -12,5 +13,10 @@ const PhotoItem = ({ photo, addTag }) => (
     </CardBody>
   </Card>
 );
+
+PhotoItem.propTypes = {
+  photo: PropTypes.object.isRequired,
+  addTag: PropTypes.func.isRequired,
+};
 
 export default PhotoItem;

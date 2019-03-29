@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import AlbumItem from './AlbumItem';
 
 const AlbumList = ({ albums, fetchPhotos }) => {
@@ -20,6 +20,11 @@ const AlbumList = ({ albums, fetchPhotos }) => {
       {albums && albums.map(renderAlbum)}  
     </div>
   );
+};
+
+AlbumList.propTypes = {
+  albums: PropTypes.array.isRequired,
+  fetchPhotos: PropTypes.func.isRequired,
 };
 
 export default AlbumList;

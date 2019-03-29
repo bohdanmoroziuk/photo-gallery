@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchAlbums, fetchPhotos } from '../redux/actions';
 import { selectAlbums } from '../redux/selectors';
@@ -22,6 +23,12 @@ class Albums extends Component {
     );
   }
 }
+
+Albums.propTypes = {
+  albums: PropTypes.array.isRequired,
+  fetchAlbums: PropTypes.func.isRequired,
+  fetchPhotos: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = state => ({
   albums: selectAlbums(state),
