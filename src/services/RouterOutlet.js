@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const RouterOutlet = (routes, fallback) => {
+const RouterOutlet = ({ routes, fallback = null }) => {
   const renderRoute = (route) => (
     <Route key={route.path} {...route} />
   );
