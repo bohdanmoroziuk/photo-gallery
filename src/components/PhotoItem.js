@@ -1,20 +1,14 @@
 import React from 'react';
-import { Card, CardImg, CardBody, Button, Form, FormGroup, Input } from 'reactstrap';
+import { Card, CardImg, CardBody } from 'reactstrap';
+import BadgeList from './BadgeList';
+import TagForm from './forms/TagForm';
 
-const PhotoItem = ({ photo }) => (
+const PhotoItem = ({ photo, addTag }) => (
   <Card className="my-2">
     <CardBody>
-      <CardImg
-        top
-        width="100%"
-        src={photo.thumbnailUrl}
-      />
-      <Form className="mt-3">
-        <FormGroup>
-          <Input type="text" name="text" placeholder="Tag name" />
-        </FormGroup>
-        <Button className="form-control" color="secondary">Add</Button>
-      </Form>
+      <CardImg top src={photo.thumbnailUrl} />
+      <BadgeList badges={photo.tags} />
+      <TagForm addTag={addTag} photoId={photo.id} />
     </CardBody>
   </Card>
 );
