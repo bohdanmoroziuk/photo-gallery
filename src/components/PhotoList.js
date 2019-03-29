@@ -2,10 +2,13 @@ import React from 'react';
 
 import PhotoItem from './PhotoItem';
 
-const PhotoList = ({ photos }) => {
+const PhotoList = ({ photos, addTag }) => {
   const renderPhoto = (photo) => (
     <div className="col-md-3" key={photo.id}>
-      <PhotoItem photo={photo} />
+      <PhotoItem 
+        photo={photo} 
+        addTag={addTag}  
+      />
     </div>
   );
 
