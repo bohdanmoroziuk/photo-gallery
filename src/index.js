@@ -1,9 +1,12 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import App from './App';
 import Shield from './services/Shield';
+
+import store from './redux/store';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -12,9 +15,11 @@ import './index.css';
 
 const Index = () => (
   <Shield>
-    <Router>
-      <App />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <App />
+      </Router>
+    </Provider>
   </Shield>
 );
 
