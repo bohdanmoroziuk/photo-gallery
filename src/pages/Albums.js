@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { fetchAlbums, fetchPhotos } from '../redux/actions';
 import { selectAlbums } from '../redux/selectors';
 
 import AlbumList from '../components/AlbumList';
-class Albums extends Component {
-  componentDidMount() {
-    this.props.fetchAlbums();
-  }
 
-  render() {
-    const { albums, fetchPhotos } = this.props;
+const Albums = ({ albums, fetchAlbums, fetchPhotos }) => {
+  useEffect(() => {
+    fetchAlbums();
+  });
 
-    return (
-      <div className="container mt-5">
-        <AlbumList 
-          albums={albums} 
-          fetchPhotos={fetchPhotos} 
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="container mt-5">
+      <AlbumList 
+        albums={albums} 
+        fetchPhotos={fetchPhotos} 
+      />
+    </div>
+  );
+};
+
 
 Albums.propTypes = {
   albums: PropTypes.array.isRequired,
