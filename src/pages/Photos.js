@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Alert, Button } from 'reactstrap';
 import { connect } from 'react-redux';
@@ -15,26 +15,22 @@ const Photos = ({ photos, history, query, addTag, setQuery }) => (
       setQuery={setQuery}
     />
     {photos.length > 0 ? (
-      <Fragment>
-        <PhotoList 
-          photos={photos} 
-          addTag={addTag} 
-        />
-      </Fragment>
+      <PhotoList 
+        photos={photos} 
+        addTag={addTag} 
+      />
     ) : (
-      <div>
-        <Alert color="light">
-          <h4 className="alert-heading">No photos</h4>
-          <p>Please, go back and select an album</p>
-          <hr />
-          <Button 
-            color="secondary" 
-            onClick={() => history.goBack()}
-          >
-            Back
-          </Button>
-        </Alert>
-      </div>
+      <Alert color="light">
+        <h4 className="alert-heading">No photos</h4>
+        <p>Please, go back and select an album</p>
+        <hr />
+        <Button 
+          color="secondary" 
+          onClick={() => history.goBack()}
+        >
+          Back
+        </Button>
+      </Alert>
     )}
   </div>
 );
