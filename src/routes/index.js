@@ -1,22 +1,22 @@
 import React, { lazy } from 'react';
 
+import { withProps } from '../hocs';
+
 const Albums  = lazy(() => import('../pages/Albums'));
 const Photos  = lazy(() => import('../pages/Photos'));
 const NoMatch = lazy(() => import('../pages/NoMatch'));
-
-const asFunction = Component => props => <Component {...props} />
 
 const routes = [
   {
     path: '/',
     exact: true,
-    render: asFunction(Albums),
+    render: withProps(Albums),
   }, {
     path: '/photos',
-    render: asFunction(Photos),
+    render: withProps(Photos),
   }, {
     path: '*',
-    render: asFunction(NoMatch),
+    render: withProps(NoMatch),
   }
 ];
 
