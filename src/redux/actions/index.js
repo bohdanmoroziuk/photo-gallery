@@ -1,6 +1,6 @@
 import ACTION_TYPES from './types';
 
-import { buildUrl } from '../../utils';
+import { apiPrefix } from '../../utils';
 
 export const setLoading = () => ({
   type: ACTION_TYPES.SET_LOADING,
@@ -22,7 +22,7 @@ export const setQuery = (value) => ({
 export const fetchAlbums = () => (dispatch) => {
   dispatch(setLoading());
 
-  fetch(buildUrl('albums?_limit=10'))
+  fetch(apiPrefix('albums?_limit=10'))
     .then(response => response.json())
     .then(albums => dispatch({
       type: ACTION_TYPES.FETCH_ALBUMS,
@@ -33,7 +33,7 @@ export const fetchAlbums = () => (dispatch) => {
 export const fetchPhotos = (albumId) => (dispatch) => {
   dispatch(setLoading());
 
-  fetch(buildUrl(`photos?albumId=${albumId}&_limit=10`))
+  fetch(apiPrefix(`photos?albumId=${albumId}&_limit=10`))
     .then(response => response.json())
     .then(photos => dispatch({
       type: ACTION_TYPES.FETCH_PHOTOS,
